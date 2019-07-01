@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue js test editor</title>
+</head>
+<body>
+
+<div id="app">
+  <h1>Ace editor for Vue.js2.0 Components</h1>
+  <p>Editor A</p>
+  <div style="height: 100px">
+    <editor editor-id="editorA" @paste="onPaste" :content="contentA" v-on:change-content="changeContentA"></editor>
+  </div>
+  <p class="result">{{contentA}}</p>
+ 
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ext-language_tools.js"></script>
+<script type="text/JavaScript">
+  /* START: <ace-editor> Vue component */
+ Vue.component('Editor', {
+	template: '<div :id="editorId" style="width: 100%; height: 100%;"></div>',
+  props: ['editorId', 'content', 'lang', 'theme'],
+  data () {
+    return {
+      editor: Object,
+      beforeContent: '',
+      langs: 'python'
+    }
+  },
+  watch: {
+    'content' (value) {
+    	if (this.beforeContent !== value) {
+      	this.editor.setValue(value, 2)
+      }
+    }
+  },
+  mounted () {
+  	console.log(this.langs)
+  	var lang = this.langs || 'text'
+    var theme = this.theme || 'github'
+  		window.ace.require("ace/ext/language_tools");
+		this.editor = window.ace.edit(this.editorId)
+    this.editor.setValue(this.content, 1)
+    
+    // mode-xxx.js or theme-xxx.jsがある場合のみ有効
+    this.editor.getSession().setMode(`ace/mode/${lang}`)
+    this.editor.setTheme(`ace/theme/${theme}`)
+    this.editor.setOptions({
+    	highlightActiveLine: true,
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
+    });
+
+    this.editor.on('change', () => {
+    	this.beforeContent = this.editor.getValue()
+      this.$emit('change-content', this.editor.getValue())
+    })
+
+    this.editor.on('paste',function(Object, event){
+    	console.log('past')
+    })
+  }
+})
+
+
+const app = new Vue({
+	el: "#app",
+	  data () {
+	  	return {
+	  	  langs : 'python',
+	      contentA: '#default content for Editor A',
+	      
+	    }
+	  },
+	  methods: {
+	  	reset () {
+	    	this.contentA = 'reset content for Editor A'
+	      
+	    },
+	    changeContentA (val) {
+	    	if (this.contentA !== val) {
+	      	this.contentA = val
+	      }
+	    },
+
+	    onPaste(envt){
+	    	console.log('pat')
+	    	return false
+	    }
+
+	    
+	  }
+	})
+</script>
+
+
+</body>
+</html>
