@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+
+    <!-- Font Awesome -->
+      <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+
+    <!-- Material Design Bootstrap -->
+    <link href="static/css/mdb.min.css" rel="stylesheet">
+
+    <style type="text/css" media="screen">
+        body {
+            overflow: hidden;
+        }
+        
+        #editor { 
+            margin: 5px;
+            position: absolute;
+            font-size: 15px;
+            width: 100%;
+            height: 400px;
+        }   
+
+        #vue {
+          background: black;
+          color: white;
+        }
+
+        #vue code {
+          font: 11pt/1.25 Monaco, monospace;
+        }
+
+        .debug { color: Snow; }
+        .info  { color: LawnGreen; }
+        .warn  { color: GoldenRod; }
+        .error { color: LightCoral; }
+  </style>
+</head>
+
+<body>
+
+
+    <!-- SCRIPTS -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">   
+                <blockquote class="blockquote bq-warning mt-5">
+                <p class="bq-title">Exercice 1</p>
+                <p>En utilisant vos connaissance en python ecrit une founction qui retourne le factoriel d'un nombre <br> Ex: <code>factoriel(5) = 120</code> </p>
+              </blockquote>
+              
+                <h3 class="mb-1">Mon Resultat </h3>
+                <pre id="vue"><code>
+                    
+                    
+                </code></pre>
+                
+            </div>
+            <div class="col-md-8">
+                 <h4>Mon test  <button type="button" class="btn btn-default btn-sm" onclick="run()">Run</button></h4>
+
+                 <br>   
+                <pre id="editor"></pre>
+
+                <br>    
+
+            </div>
+            
+        </div>
+       
+    </div>
+
+
+
+
+<!-- load ace -->
+<script src="https://cursus.nan.ci/nan_mvc/assets/import/src-min/ace.js"></script>
+<!-- load ace language tools -->
+<script src="https://cursus.nan.ci/nan_mvc/assets/import/src-min/ext-language_tools.js"></script>
+<script>
+    // trigger extension
+    ace.require("ace/ext/language_tools");
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/python");
+    editor.setTheme("ace/theme/dracula");
+    // enable autocompletion and snippets
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
+    });
+
+
+</script>
+
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <!-- Tooltips -->
+    <!-- <script type="text/javascript" src="https://mdbootstrap.com/previews/docs/latest/js/popper.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <!-- MDB core JavaScript -->
+    <!-- <script type="text/javascript" src="https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js"></script> -->
+    <script type="text/javascript" src="static/js/mdb.min.js"></script>
+
+
+
+
+
+    <script>
+    var BASE_URL = localStorageGetItem("baseUrl") || "https://api.judge0.com";
+    var SUBMISSION_CHECK_TIMEOUT = 10; // in ms
+    var WAIT = localStorageGetItem("wait") == "true";
+    var sourceEditor, inputEditor, outputEditor;
+    var $insertTemplateBtn, $selectLanguageBtn, $vimCheckBox;
+    var $statusLine, $emptyIndicator;
+    var timeStart, timeEnd;
+    $runBtn = $("#runBtn");
+    $saveBtn = $("#saveBtn");
+
+    $(document).ready(function() {
+        editor.setValue("#Hello completer le code\n \ndef factoriel(n):\n    #code ici\n    return #valeur a retourner");
+
+
+    });
+    var fileNames = {
+        1: "script.sh",
+        2: "script.sh",
+        3: "main.bas",
+        4: "main.c",
+        5: "main.c",
+        6: "main.c",
+        7: "main.c",
+        8: "main.c",
+        9: "main.c",
+        10: "main.cpp",
+        11: "main.cpp",
+        12: "main.cpp",
+        13: "main.cpp",
+        14: "main.cpp",
+        15: "main.cpp",
+        16: "Main.cs",
+        17: "Main.cs",
+        18: "main.clj",
+        19: "main.cr",
+        20: "main.exs",
+        21: "main.erl",
+        22: "main.go",
+        23: "main.hs",
+        24: "main.hs",
+        25: "main.ins",
+        26: "Main.java",
+        27: "Main.java",
+        28: "Main.java",
+        29: "main.js",
+        30: "main.js",
+        31: "main.ml",
+        32: "file.m",
+        33: "main.pas",
+        34: "main.py",
+        35: "main.py",
+        36: "main.py",
+        37: "main.py",
+        38: "main.rb",
+        39: "main.rb",
+        40: "main.rb",
+        41: "main.rb",
+        42: "main.rs",
+        43: "source.txt"
+    };
+
+
+
+    function handleError(jqXHR, textStatus, errorThrown) {
+        console.log(JSON.stringify(jqXHR, null, 4));
+        $statusLine.html(`${jqXHR.statusText} (${jqXHR.status})`);
+    }
+    function handleRunError(jqXHR, textStatus, errorThrown) {
+        handleError(jqXHR, textStatus, errorThrown);
+        $runBtn.button("reset");
+
+    }
+    function fetchSubmission(submission_token) {
+        $.ajax({
+            url: BASE_URL + "/submissions/" + submission_token + "?base64_encoded=true",
+            type: "GET",
+            async: true,
+            success: function(data, textStatus, jqXHR) {
+                if (data.status.id <= 2) { // In Queue or Processing
+                    setTimeout(fetchSubmission.bind(null, submission_token), SUBMISSION_CHECK_TIMEOUT);
+                    return;
+                }
+                handleResult(data);
+            },
+            error: handleRunError
+        });
+    }
+    function localStorageSetItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch (ignorable) {
+        }
+    }
+    function localStorageGetItem(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch (ignorable) {
+            return null;
+        }
+    }
+
+    function handleResult(data) {
+        console.log(data)
+        timeEnd = performance.now();
+        console.log("It took " + (timeEnd - timeStart) + " ms to get submission result.");
+
+        var status = data.status;
+        var stdout = decodeURIComponent(escape(atob(data.stdout || "")));
+        var stderr = decodeURIComponent(escape(atob(data.stderr || "")));
+        var compile_output = decodeURIComponent(escape(atob(data.compile_output || "")));
+        var message = decodeURIComponent(escape(atob(data.message || "")));
+        var time = (data.time === null ? "-" : data.time + "s");
+        var memory = (data.memory === null ? "-" : data.memory + "KB");
+
+        if (status.id == 6) {
+            stdout = compile_output;
+        } else if (status.id == 13) {
+            stdout = message;
+        } else if (status.id != 3 && stderr != "") { // If status is not "Accepted", merge stdout and stderr
+            stdout += (stdout == "" ? "" : "\n") + stderr;
+        }
+
+        if (status.id == 4){
+            console.log('code incorrecte')
+        }
+
+        
+        well(stdout);
+    }
+    function run() {
+        if (editor.getValue().trim() == "") {
+            alert("Editeur vide!");
+            return;
+        } else {
+
+            
+           
+
+            var str = editor.getValue();
+
+             var code = str.indexOf("return");
+            console.log(code)
+            //str = str.find("print").remove();
+            str = str + '\nprint(factoriel(5))'
+            console.log(str);
+        }
+
+        
+
+        var sourceValue = btoa(unescape(encodeURIComponent(str)));
+        var inputValue = btoa(unescape(encodeURIComponent(inputEditor)));
+        //var stdin = btoa(unescape(encodeURIComponent(code)));
+        var languageId =  34;
+        var expected_output = btoa(unescape(encodeURIComponent(120)))
+        var data = {
+            source_code: sourceValue,
+            language_id: languageId,
+            //stdin: stdin,
+            expected_output: expected_output
+        };
+
+        timeStart = performance.now();
+        $.ajax({
+            url: BASE_URL + `/submissions?base64_encoded=true&wait=${WAIT}`,
+            type: "POST",
+            async: true,
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function(data, textStatus, jqXHR) {
+                console.log(`Your submission token is: ${data.token}`);
+                if (WAIT == true) {
+
+                    handleResult(data);
+                    
+
+                } else {
+                    setTimeout(fetchSubmission.bind(null, data.token), SUBMISSION_CHECK_TIMEOUT);
+                }
+            },
+            error: handleRunError
+        });
+    }
+
+    function well(a){
+        if (a == 120){
+            $("#vue").html('<span class="info"> Success</span>');
+        }else{
+            $("#vue").html('<span class="error"> Error\n '+a+' </span>');
+        }
+
+            
+    }
+
+</script>
+
+</body>
+
+</html>

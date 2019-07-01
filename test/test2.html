@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+
+    <!-- Font Awesome -->
+      <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+
+    <!-- Material Design Bootstrap -->
+    <link href="static/css/mdb.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/timeline.min.css">
+    <style type="text/css" media="screen">
+        
+        
+        #editor { 
+            margin: 5px;
+            position: absolute;
+            font-size: 15px;
+            width: 90%;
+            height: 100%;
+        }   
+
+        #vue {
+          background: black;
+          color: white;
+        }
+
+        #vue code {
+          font: 11pt/1.25 Monaco, monospace;
+        }
+
+        .debug { color: Snow; }
+        .info  { color: LawnGreen; }
+        .warn  { color: GoldenRod; }
+        .error { color: LightCoral; }
+  </style>
+
+</head>
+
+<body>
+
+
+    <!-- SCRIPTS -->
+    <div class="container-fluid" id="myvue">
+        <div class="row">
+            <div class="col-md-2 scrollbar" id="style-3">
+                <!-- Timeline light-->
+
+                <div class="timeline-main">
+
+                  <ul class="timeline-light">
+                    
+                    <li class="timeline-light-item timeline-light-item-dashed timeline-light-item-success">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 1
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-danger">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 2
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-secondary timeline-light-item-loading">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 3
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-icon">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head">
+                        <i class="far fa-smile-beam fa-spin"></i>
+                      </div>
+                      <div class="timeline-light-item-content">
+                        Test 4
+                      </div>
+                    </li>
+
+                    <li class="timeline-light-item timeline-light-item-dashed timeline-light-item-success">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 1
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-danger">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 2
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-secondary timeline-light-item-loading">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 3
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-icon">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head">
+                        <i class="far fa-smile-beam fa-spin"></i>
+                      </div>
+                      <div class="timeline-light-item-content">
+                        Test 4
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-dashed timeline-light-item-success">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 1
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-danger">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 2
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-secondary timeline-light-item-loading">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 3
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-icon">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head">
+                        <i class="far fa-smile-beam fa-spin"></i>
+                      </div>
+                      <div class="timeline-light-item-content">
+                        Test 4
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-dashed timeline-light-item-success">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 1
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-danger">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 2
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-secondary timeline-light-item-loading">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 3
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-icon">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head">
+                        <i class="far fa-smile-beam fa-spin"></i>
+                      </div>
+                      <div class="timeline-light-item-content">
+                        Test 4
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-dashed timeline-light-item-success">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 1
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-danger">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 2
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-secondary timeline-light-item-loading">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head"></div>
+                      <div class="timeline-light-item-content">
+                        Test 3
+                      </div>
+                    </li>
+                    <li class="timeline-light-item timeline-light-item-icon">
+                      <div class="timeline-light-item-tail"></div>
+                      <div class="timeline-light-item-head">
+                        <i class="far fa-smile-beam fa-spin"></i>
+                      </div>
+                      <div class="timeline-light-item-content">
+                        Test 4
+                      </div>
+                    </li>
+                  </ul>
+
+                </div>
+<!-- Timeline light-->
+            </div>
+            <div class="col-md-3">   
+
+                <blockquote class="blockquote bq-warning">
+                <p class="bq-title">Exercice 3</p>
+                <p>En utilisant vos connaissance en python ecrit une founction qui retourne la somme des n entier d'un nombre.
+                    Pour n = 5 on a :<code> 1+2+3+4+5 = 15</code> <br> Ex: <code>somme_n(5) = 15</code> </p>
+              </blockquote>
+              
+                <h3 class="mb-1">Mon Resultat </h3>
+                <pre id="vue"><code>
+                    
+                    
+                </code></pre>
+                
+            </div>
+            <div class="col-md-7">
+                 <h4 class="align-right">Mon test  <button type="button" class="btn btn-default btn-sm" onclick="run()">Run</button>
+
+                 </h4>
+
+                 <br>   
+                <pre id="editor"></pre>
+
+                <br>    
+
+            </div>
+            
+        </div>
+       
+    </div>
+
+
+
+
+<!-- load ace -->
+<script src="https://cursus.nan.ci/nan_mvc/assets/import/src-min/ace.js"></script>
+<!-- load ace language tools -->
+<script src="https://cursus.nan.ci/nan_mvc/assets/import/src-min/ext-language_tools.js"></script>
+
+
+
+  <!-- Change 3.2.3 with latest version -->
+
+<script>
+    // trigger extension
+    ace.require("ace/ext/language_tools");
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/python");
+    editor.setTheme("ace/theme/dracula");
+    // enable autocompletion and snippets
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
+    });
+
+
+</script>
+
+
+
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <!-- Tooltips -->
+    <!-- <script type="text/javascript" src="https://mdbootstrap.com/previews/docs/latest/js/popper.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <!-- MDB core JavaScript -->
+    <!-- <script type="text/javascript" src="https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js"></script> -->
+    <script type="text/javascript" src="static/js/mdb.min.js"></script>
+
+
+    <script type="text/javascript" src="static/js/vuecode.js"></script>
+
+
+
+
+</body>
+
+</html>
