@@ -1,12 +1,4 @@
-body{
-	color: #eef1f5!important;
-    
-    background-color: #080000!important;
-}
 
-.custom-radio .custom-control-input:checked~.custom-control-label::before {
-    background-color: #41c114!important;
-}
 
    .timeline-main .stepper.stepper-vertical.timeline li a {
       padding: 0px 24px;
