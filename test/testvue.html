@@ -18,6 +18,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ext-language_tools.js"></script>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/JavaScript">
   /* START: <ace-editor> Vue component */
  Vue.component('Editor', {
@@ -38,8 +39,8 @@
     }
   },
   mounted () {
-  	console.log(this.langs)
-  	var lang = this.langs || 'text'
+  	console.log(this.lang)
+  	var lang = this.lang || 'text'
     var theme = this.theme || 'github'
   		window.ace.require("ace/ext/language_tools");
 		this.editor = window.ace.edit(this.editorId)
@@ -63,6 +64,34 @@
     this.editor.on('paste',function(Object, event){
     	console.log('past')
     })
+
+    this.onload();
+  },
+  methods:{
+  	onload(){
+
+  			 axios.defaults.xsrfCookieName = 'csrftoken'
+            axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
+	    		var config = {
+	                headers: {
+	                    'Access-Control-Allow-Origin': '*'
+	                }
+	            };
+	    	   axios.get('http://127.0.0.1:8000/get', config)
+                .then(response => {
+                    myshop = JSON.parse(response.data)
+
+                    console.log('getting..')
+                    
+                    //console.log(response.data)
+                    //this.loading = false;
+                })
+                .catch((err) => {
+                    //this.loading = false;
+                    console.log(err);
+                })
+	    }
   }
 })
 
@@ -91,6 +120,8 @@ const app = new Vue({
 	    	console.log('pat')
 	    	return false
 	    }
+
+	    
 
 	    
 	  }
